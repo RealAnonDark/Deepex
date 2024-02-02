@@ -56,22 +56,11 @@ Deep explore in subdomains.
 
 # Installation
 
-# Linux
+## Linux
 
 ```sh
-git clone  https://github.com/RealAnonDark/Deepex
+git clone  https://github.com/RealAnonDark/Deepex.git
 ```
-## Post Installation Instructions
-
-`subfinder` can be used right after the installation, however many sources required API keys to work. Learn more here: https://docs.projectdiscovery.io/tools/subfinder/install#post-install-configuration.
-
-## Running Subfinder
-
-Learn about how to run Subfinder here: https://docs.projectdiscovery.io/tools/subfinder/running.
-
-## Subfinder Go library
-
-Subfinder can also be used as library and a minimal examples of using subfinder SDK is available [here](v2/examples/main.go)
 
 </td>
 </tr>
@@ -79,11 +68,5 @@ Subfinder can also be used as library and a minimal examples of using subfinder 
 
 ### Resources
 
-- [Recon with Me !!!](https://dhiyaneshgeek.github.io/bug/bounty/2020/02/06/recon-with-me/)
+- [Support me !!!](https://t.me/RealHashashin)
 
-# License
-
-`subfinder` is made with 🖤 by the [projectdiscovery](https://projectdiscovery.io) team. Community contributions have made the project what it is. See
-the **[THANKS.md](https://github.com/projectdiscovery/subfinder/blob/main/THANKS.md)** file for more details.
-
-Read the usage disclaimer at [DISCLAIMER.md](https://github.com/projectdiscovery/subfinder/blob/main/DISCLAIMER.md) and [contact us](mailto:contact@projectdiscovery.io) for any API removal.

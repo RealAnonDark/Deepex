@@ -7,7 +7,7 @@
 
 
 <p align="center">
-<a href="https://github.com/RealAnonDark/Deepex/releases"><img src="https://img.shields.io/github/release/RealAnonDark/Deepex"></a>
+<a href="https://github.com/RealAnonDark/Deepex/releases/tag/v1.0"><img src="https://img.shields.io/github/release/RealAnonDark/Deepex"></a>
 <a href="https://t.me/RealHashashin"><img src="https://img.shields.io/twitter/follow/RealHashashin.svg?logo=telegram"></a>
 <a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=telegram"></a>
 </p>

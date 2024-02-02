@@ -108,7 +108,7 @@ while true;do
     sleep 1
     url2=$(echo "$url" | sed 's/.com//g')
     code="https://crt.sh/?q=%.""$url2"".%&output=json"
-    sub="$url"".crt"".txt"
+    sub="$url2"".crt"".txt"
     curl -sk $code | jq -r '.[].name_value'  | sort -u > $sub
     break
     ;;

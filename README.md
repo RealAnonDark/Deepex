@@ -28,90 +28,39 @@
 # Features
 
 <h1 align="left">
-  <img src="files/Deepex.png" alt="subfinder" width="700px"></a>
+  <img src="files/Deepex-2[1].png" alt="subfinder" width="700px"></a>
   <br>
 </h1>
 
-- Fast and powerful resolution and wildcard elimination modules
-- **Curated** passive sources to maximize results
-- Multiple output formats supported (JSON, file, stdout)
-- Optimized for speed and **lightweight** on resources
-- **STDIN/OUT** support enables easy integration into workflows
+- Fast and powerful 
+- Multiple scans
 
 # Usage
 
 ```sh
-subfinder -h
+deepex.sh -h
 ```
 
 This will display help for the tool. Here are all the switches it supports.
 
 ```yaml
-Usage:
-  ./subfinder [flags]
+Usage : ./deepex.sh -u example.com -o option=1 -t threads=1
 
-Flags:
-INPUT:
-  -d, -domain string[]  domains to find subdomains for
-  -dL, -list string     file containing list of domains for subdomain discovery
+Deep explore in subdomains.
 
-SOURCE:
-  -s, -sources string[]           specific sources to use for discovery (-s crtsh,github). Use -ls to display all available sources.
-  -recursive                      use only sources that can handle subdomains recursively (e.g. subdomain.domain.tld vs domain.tld)
-  -all                            use all sources for enumeration (slow)
-  -es, -exclude-sources string[]  sources to exclude from enumeration (-es alienvault,zoomeyeapi)
-
-FILTER:
-  -m, -match string[]   subdomain or list of subdomain to match (file or comma separated)
-  -f, -filter string[]   subdomain or list of subdomain to filter (file or comma separated)
-
-RATE-LIMIT:
-  -rl, -rate-limit int  maximum number of http requests to send per second
-  -rls value            maximum number of http requests to send per second four providers in key=value format (-rls "hackertarget=10/s,shodan=15/s")
-  -t int                number of concurrent goroutines for resolving (-active only) (default 10)
-
-UPDATE:
-   -up, -update                 update subfinder to latest version
-   -duc, -disable-update-check  disable automatic subfinder update check
-
-OUTPUT:
-  -o, -output string       file to write output to
-  -oJ, -json               write output in JSONL(ines) format
-  -oD, -output-dir string  directory to write output (-dL only)
-  -cs, -collect-sources    include all sources in the output (-json only)
-  -oI, -ip                 include host IP in output (-active only)
-
-CONFIGURATION:
-  -config string                flag config file (default "$CONFIG/subfinder/config.yaml")
-  -pc, -provider-config string  provider config file (default "$CONFIG/subfinder/provider-config.yaml")
-  -r string[]                   comma separated list of resolvers to use
-  -rL, -rlist string            file containing list of resolvers to use
-  -nW, -active                  display active subdomains only
-  -proxy string                 http proxy to use with subfinder
-  -ei, -exclude-ip              exclude IPs from the list of domains
-
-DEBUG:
-  -silent             show only subdomains in output
-  -version            show version of subfinder
-  -v                  show verbose output
-  -nc, -no-color      disable color in output
-  -ls, -list-sources  list all available sources
-
-OPTIMIZATION:
-  -timeout int   seconds to wait before timing out (default 30)
-  -max-time int  minutes to wait for enumeration results (default 10)
+  -u, --url         target URL
+  -o, --option      1> ARCH 2>CRT 3>soon...
+  -t, --thread      thread numbers | 1 = [DEEPEX].example.com | 2 = [DEEPEX].[DEEPEX].example.com
+  -h, --help        help
 ```
 
 # Installation
 
-`subfinder` requires **go1.20** to install successfully. Run the following command to install the latest version:
+# Linux
 
 ```sh
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+git clone  https://github.com/RealAnonDark/Deepex
 ```
-
-Learn about more ways to install subfinder here: https://docs.projectdiscovery.io/tools/subfinder/install.
-
 ## Post Installation Instructions
 
 `subfinder` can be used right after the installation, however many sources required API keys to work. Learn more here: https://docs.projectdiscovery.io/tools/subfinder/install#post-install-configuration.

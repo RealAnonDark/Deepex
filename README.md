@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="static/subfinder-logo.png" alt="subfinder" width="200px">
+  <img src="files/Deepex.png" alt="subfinder" width="200px">
   <br>
 </h1>
 
@@ -7,11 +7,9 @@
 
 
 <p align="center">
-<a href="https://goreportcard.com/report/github.com/projectdiscovery/subfinder/v2"><img src="https://goreportcard.com/badge/github.com/projectdiscovery/subfinder"></a>
-<a href="https://github.com/projectdiscovery/subfinder/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
-<a href="https://github.com/projectdiscovery/subfinder/releases"><img src="https://img.shields.io/github/release/projectdiscovery/subfinder"></a>
-<a href="https://twitter.com/pdiscoveryio"><img src="https://img.shields.io/twitter/follow/pdiscoveryio.svg?logo=twitter"></a>
-<a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=discord"></a>
+<a href="https://github.com/RealAnonDark/Deepex/releases"><img src="https://img.shields.io/github/release/RealAnonDark/Deepex"></a>
+<a href="https://t.me/RealHashashin"><img src="https://img.shields.io/twitter/follow/RealHashashin.svg?logo=telegram"></a>
+<a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=telegram"></a>
 </p>
 
 <p align="center">
@@ -26,16 +24,11 @@
 ---
 
 
-`subfinder` is a subdomain discovery tool that returns valid subdomains for websites, using passive online sources. It has a simple, modular architecture and is optimized for speed. `subfinder` is built for
-doing one thing only - passive subdomain enumeration, and it does that very well.
-
-We have made it to comply with all the used passive source licenses and usage restrictions. The passive model guarantees speed and stealthiness that can be leveraged by both penetration testers and bug bounty
-hunters alike.
-
+`Deepex` is a subdomain discovery tool that returns valid subdomains for websites, using passive online sources.
 # Features
 
 <h1 align="left">
-  <img src="static/subfinder-run.png" alt="subfinder" width="700px"></a>
+  <img src="files/Deepex.png" alt="subfinder" width="700px"></a>
   <br>
 </h1>
 

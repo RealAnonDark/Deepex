@@ -56,6 +56,8 @@ Deep explore in subdomains.
 ## Linux
 
 ```sh
+apt update && apt upgrade
+apt install jq
 git clone  https://github.com/RealAnonDark/Deepex.git
 ```
 

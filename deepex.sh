@@ -25,13 +25,11 @@ ${YELLOW}        Deepax is a powerful tool that can explore the depths and find 
 
 help()
 {
-    echo -e "\nUsage : ./deepex.sh -u example.com -o option=1 -t threads=1
+    echo -e "\nUsage : ./deepex.sh -u example.com 
 
 Deep explore in subdomains.
 
   -u, --url         target URL
-  -o, --option      1> ARCH 2>CRT 3>soon...
-  -t, --thread      thread numbers | 1 = [DEEPEX].example.com | 2 = [DEEPEX].[DEEPEX].example.com
   -h, --help        help
 
     "
@@ -41,85 +39,50 @@ error(){
         echo "deepex: invalid option $1"
         echo "Try './deepex --help' for more information."
 }
-    url=""
-    option=""
-    thread=""
-function options(){
-    while true;do
-    if [ "$1" = "--help" -o "$1" = "-h" ]; then
-        help
-        elif [ "$1" = "--url" -o "$1" = "-u" ]; then
-    shift 1
-        url=$1
-        if [ "$2" = "--option" -o "$2" = "-o" ]; then
-        shift 1
-        option=$2
-            if [ "$3" = "--thread" -o "$3" = "-t" ]; then
-        shift 1
-        thread=$3
-            break
-            fi
-        fi
-            else
-                if [ "$1" != "--url" -o "$1" != "-u" ]; then
-                error
-                elif [ "$1" != "--option" -o "$1" != "-o" ]; then
-                error
-                elif [ "$1" != "--thread" -o "$1" != "-t" ]; then
-                error
-                fi
-        break
+
+function recon(){
+    eval cd scripts; subfinder -silent -d $2; > $save
+    start $@
+    python3 turbolist3r.py -d $url -q >> $save
+    start $@
+    #using web archive
+    code="https://web.archive.org/cdx/search/cdx/\?url\=\*.""$url""\&fl\=original\&collapse\=urlkey"
+    eval curl $code -s >> $save
+    start $@
+    #using ssl crt
+    url2=$(echo ${url%.*})
+    code2="https://crt.sh/?q=%.""$url2"".%&output=json"
+    eval curl -sk $code2 | jq -r '.[].name_value'  >> $save
+    start $@
+}
+function cleaner() {
+save2="$url2"".txt"
+eval cat $save | cut -d "/" -f3 | sort -u > $save2
+eval mkdir $url; mv $save -t $url; mv $save2 -t $url; cd .. 
+
+}
+
+function main(){
+
+
+while true;do
+
+    if [ "$1" = "-u" -o "$1" = "--url" ];then
+    url="$2"
+    out=$(echo ${url%.*})
+    save="$out""-deepex.txt"
+    recon $@
+    cleaner $@
+    break
+    elif [ "$1" = "-h" -o "$1" = "--help" ];then
+    help
+    break
+    else
+    error
+    break
     fi
 done
+
 }
-function main(){
-start
-options $@
-while true;do
-    case $option in
-    1)
-    echo -e "\n${RED}
-                            ░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░
-                           ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
-                           ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░
-                           ░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒░      ░▒▓████████▓▒░
-                           ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░
-                           ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
-                           ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░
-"
-    echo "                                                 Starting"
-    sleep 1
-    code="https://web.archive.org/cdx/search/cdx/\?url\=\*.""$url""\&fl\=original\&collapse\=urlkey"
-    sub="$url"".deepex"".txt"
-    eval curl $code -s | cut -d "/" -f3 | sort -u > $sub
-    break
-    ;;
-    2)
-    echo -e "\n${RED}
-                                   ▒▓██████▓▒░░▒▓███████▓▒░▒▓████████▓▒░
-                                  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░
-                                  ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░
-                                  ░▒▓█▓▒░      ░▒▓███████▓▒░  ░▒▓█▓▒░
-                                  ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░
-                                  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░
-                                   ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░
-"
-    echo "                                                 Starting"
-    sleep 1
-    url2=$(echo "$url" | sed 's/.com//g')
-    code="https://crt.sh/?q=%.""$url2"".%&output=json"
-    sub="$url2"".crt"".txt"
-    curl -sk $code | jq -r '.[].name_value'  | sort -u > $sub
-    break
-    ;;
-    3)
-    echo "soon..."
-    break
-    ;;
-    *)
-    help
-    ;;
-    esac
-done
-}
+start $@
 main $@

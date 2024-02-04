@@ -41,7 +41,7 @@
 This will display help for the tool. Here are all the switches it supports.
 
 ```yaml
-Usage : ./deepex.sh -u example.com -o option=1 -t threads=1
+Usage : ./deepex.sh -u example.com
 
 Deep explore in subdomains.
 

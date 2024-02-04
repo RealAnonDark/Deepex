@@ -64,7 +64,8 @@ cd Deepex && pip3 install -r requirements.txt && chmod +x deepex.sh
 </td>
 </tr>
 </table>
-
+### Hint
+You can find output in scripts/target.com directory
 ### Resources
 
 - [Support me !!!](https://t.me/RealHashashin)

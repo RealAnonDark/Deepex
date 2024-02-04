@@ -46,8 +46,6 @@ Usage : ./deepex.sh -u example.com -o option=1 -t threads=1
 Deep explore in subdomains.
 
   -u, --url         target URL
-  -o, --option      1> ARCH 2>CRT 3>soon...
-  -t, --thread      thread numbers | 1 = [DEEPEX].example.com | 2 = [DEEPEX].[DEEPEX].example.com
   -h, --help        help
 ```
 

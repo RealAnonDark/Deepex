@@ -57,8 +57,10 @@ Deep explore in subdomains.
 
 ```sh
 apt update && apt upgrade
-apt install jq
+apt install jq && apt install pyrhon3 && apt install golang-go 
 git clone  https://github.com/RealAnonDark/Deepex.git
+cd Deepex && chmod +x deepex.sh
+./deepex
 ```
 
 </td>

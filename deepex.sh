@@ -41,7 +41,7 @@ error(){
 }
 
 function recon(){
-    eval cd scripts; subfinder -silent -d $2; > $save
+    eval cd scripts; ./subfinder -silent -d $2; > $save
     start $@
     python3 turbolist3r.py -d $url -q >> $save
     start $@

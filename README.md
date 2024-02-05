@@ -59,7 +59,7 @@ apt install jq && apt install python3
 git clone  https://github.com/RealAnonDark/Deepex.git
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 cp go/bin/httpx -t Deepex/scripts
-cd Deepex && pip3 install -r requirements.txt && chmod +x deepex.sh
+cd Deepex && pip3 install -r requirements.txt && chmod +x deepex.sh && cd scripts && chmod +x *
 ./deepex.sh
 ```
 

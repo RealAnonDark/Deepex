@@ -57,8 +57,16 @@ function recon(){
 }
 function cleaner() {
 save2="$url2"".txt"
-eval cat $save | cut -d "/" -f3 | sort -u > $save2
-eval mkdir $url; mv $save -t $url; mv $save2 -t $url; cd .. 
+eval cat $save | cut -d "/" -f3 | sort -u | sed 's/:80//' | sed 's/www.//' | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | sort -u > $save2
+save3="clean""$save2"
+eval cat "$save2"
+echo hi
+eval cat "$save2" | ./httpx -silent > $save3
+#eval cat $save2 | ./massdns -r lists/resolvers.txt -t A -o S -w $save3
+#eval cat $save3 | awk '{print $1}' | sed 's/.$//' > $save4
+
+
+eval mkdir $url; mv $save -t $url; mv $save2 -t $url;mv $save3 -t $url; cd .. 
 
 }
 
